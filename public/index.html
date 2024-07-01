@@ -43,8 +43,9 @@
 
     <div id="whoami-container"></div>
 
+
     <script>
-      async fetchWhoAmI() => {
+      async  function fetchWhoAmI() {
         try {
           const response = await fetch('/api/whoami');
           const data = await response.json();
