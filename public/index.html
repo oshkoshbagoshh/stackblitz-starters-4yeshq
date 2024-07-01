@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Header Parser MicroService</title>
+  </head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    h1 {
+      color: #333;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    p {
+      color: #666;
+    }
+    #container {
+      margin-top: 20px;
+      padding: 10px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+  </style>
+  <body>
+    <h1>API Header Parser MicroService</h1>
+
+    <h2>Who ami I?</h2>
+
+    <div id="whoami-container"></div>
+
+    <script>
+      async fetchWhoAmI() => {
+        try {
+          const response = await fetch('/api/whoami');
+          const data = await response.json();
+          const whoamiContainer = document.getElementById('whoami-container');
+
+          whoamiConainter.innerText = `IP Address: ${data.ipaddress}\nPreferred Language:${data.language}\nSoftware:${data.software}`;
+        } catch (error) {
+          console.error('Error fetching /api/whoami:', error);
+        }
+       }
+       fetchWhoAmI();
+    </script>
+  </body>
+</html>
